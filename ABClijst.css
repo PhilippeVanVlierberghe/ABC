@@ -2,11 +2,11 @@
     display: grid;
     grid-template-columns: 33% 33% 33%;
 }
-@media screen and (max-width: 900px) {
-    #MainContent {
-        display: grid;
-        grid-template-columns: 99%;
-    }
+@media screen and (max-width: 600px) {
+#MainContent {
+    display: grid;
+    grid-template-columns: 99%;
+}
 }
 input,
 ul {
