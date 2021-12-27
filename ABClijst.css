@@ -1,0 +1,36 @@
+#MainContent {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+input,
+ul {
+    width: 80%;
+}
+
+#onderwerp {
+    width: 90%;
+    text-align: center;
+}
+
+#imgDelete:hover {
+    content: url("delete2.gif");
+}
+
+img {
+    height: 24px;
+    width: 24px;
+}
+
+img:hover {
+    transform: scale(1.5);
+}
+
+.priority {
+    width: 10px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}

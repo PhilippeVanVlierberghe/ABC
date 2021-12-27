@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ABC lijst</title>
+    <script src="ABClijst.js" defer></script>
+    <link rel="stylesheet" href="ABClijst.css">
+</head>
+
+<body>
+    <button id="btnClear" type="button">CLEAR</button>
+    <button id="btnSave" type="button">SAVE</button>
+    <button id="btnLoad" type="button">LOAD</button><br>
+    <input type="text" id="onderwerp" name="onderwerp">
+
+    <div id="MainContent">
+        <div>
+            <h1>Lijst A</h1>
+            <p>Moet vandaag gebeuren.</p>
+            <input type="text" class="inputList" id="extraA" name="extraA" data-lijst="lijstA">
+            <ul id="lijstA">
+            </ul>
+        </div>
+
+        <div>
+            <h1>Lijst B</h1>
+            <p>Moet deze week gebeuren</p>
+            <input type="text" class="inputList" id="extraB" name="extraB" data-lijst="lijstB">
+            <ul id="lijstB">
+            </ul>
+        </div>
+        <div>
+            <h1>Lijst C</h1>
+            <p>Dit zou handig zijn.</p>
+            <input type="text" class="inputList" id="extraC" name="extraC" data-lijst="lijstC">
+            <ul id="lijstC">
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
