@@ -1,0 +1,6 @@
+{
+    "onderwerp": ["test ondewerp"],
+    "saveDataA": [{ "lijst": "lijstA", "priority": 1, "value": "MoekeenVakebezoeken" }],
+    "saveDataB": [{ "lijst": "lijstB", "priority": 5, "value": "vdbrge'" }, { "lijst": "lijstB", "priority": 4, "value": "gfdsertre" }],
+    "saveDataC": [{ "lijst": "lijstC", "priority": 2, "value": "hjhluio" }, { "lijst": "lijstC", "priority": 1, "value": "gdfte't" }]
+}

@@ -15,7 +15,7 @@ const onderwerp = document.getElementById("onderwerp");
 
 let saveOnderwerp = localStorage.getItem("saveOnderwerp");
 if (saveOnderwerp !== null) {
-    onderwerp.value = saveOnderwerp;
+    onderwerp.value = saveOnderwerp.substring(saveOnderwerp.indexOf(`"`) + 1, saveOnderwerp.length - 2);
 }
 
 let saveDataA = JSON.parse(localStorage.getItem("saveDataA"));
@@ -33,7 +33,7 @@ if (saveDataC === null) {
 readSaveData();
 
 onderwerp.onblur = function() {
-    localStorage.setItem("saveOnderwerp", this.value);
+    localStorage.setItem("saveOnderwerp", `["${this.value}"]`);
 };
 
 for (const input of inputs) {
@@ -56,16 +56,29 @@ btnClear.onclick = function() {
 }
 btnSave.onclick = function() {
     let a = document.createElement('a');
-    a.href = "data:application/octet-stream," +
-        ("onderwerp:" + JSON.stringify(onderwerp)) +
-        ("saveDataA:" + JSON.stringify(saveDataA)) +
-        ("saveDataB:" + JSON.stringify(saveDataB)) +
-        ("saveDataC:" + JSON.stringify(saveDataC));
+    a.href = `data:application/octet-stream, 
+        {
+        "onderwerp":[${JSON.stringify(onderwerp)}]
+        "saveDataA":${JSON.stringify(saveDataA)}
+        "saveDataB":${JSON.stringify(saveDataB)}
+        "saveDataC":${JSON.stringify(saveDataC)}
+        }`;
     a.download = 'abc.txt';
     a.click();
 }
-btnLoad.onclick = function() {
+btnLoad.onclick = async function() {
+    let loadData;
+    let r;
+    await fetch("abc.json")
+        .then(response => response.json())
+        .then(data => loadData = data)
+        .catch(error => console.log("error"));
 
+    localStorage.setItem("saveOnderwerp", JSON.stringify(loadData.onderwerp));
+    localStorage.setItem("saveDataA", JSON.stringify(loadData.saveDataA));
+    localStorage.setItem("saveDataB", JSON.stringify(loadData.saveDataB));
+    localStorage.setItem("saveDataC", JSON.stringify(loadData.saveDataC));
+    location.reload();
 }
 
 function addToList(lijst, priority, text) {
